@@ -1,0 +1,43 @@
+name: Deploy Public Game
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: 게시 디렉터리 격리 및 파일 검사
+        shell: python
+        run: |
+          import pathlib, shutil
+          root=pathlib.Path('.')
+          site=pathlib.Path('_site')
+          site.mkdir()
+          for p in root.iterdir():
+            if p.name in ('index.html','assets','audio','art-v4','runtime-assets.json','.nojekyll'):
+              if p.is_dir(): shutil.copytree(p,site/p.name)
+              else: shutil.copyfile(p,site/p.name)
+          assert (site/'index.html').is_file()
+          assert len(list((site/'audio').glob('*.wav'))) == 13
+          assert not list(site.rglob('*.map'))
+          assert not list(site.rglob('*.ts'))
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - uses: actions/deploy-pages@v4
+        id: deployment
