@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>말랑 블록</title>
+    <meta name="description" content="입체 보석 블록을 놓고 줄을 비우는 차분한 8×8 퍼즐" />
+    <meta name="color-scheme" content="light" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #f4efe3;
+        touch-action: none;
+        overscroll-behavior: none;
+      }
+      #game {
+        width: 100%;
+        height: 100%;
+      }
+
+      /*
+       * 로딩 화면 — 게임 코드가 내려오기 전에 «먼저» 보이는 화면입니다.
+       *
+       * 앱인토스 출시 기준은 「10초 이내에 최초 화면까지 열려요」 입니다.
+       * 게임 번들(약 400KB)만 기다리면 느린 3G 에서 9초가 걸려 여유가 없었습니다(실측).
+       * HTML·CSS 만으로 만든 이 화면은 첫 응답과 함께 즉시 뜨므로 흰 화면이 사라집니다.
+       */
+      #loading {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        background: #f4efe3;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+      }
+      #loading.done {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .blocks {
+        display: flex;
+        gap: 10px;
+      }
+      .blocks i {
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
+        display: block;
+        animation: hop 0.9s ease-in-out infinite;
+      }
+      .blocks i:nth-child(1) {
+        background: #32c4bd;
+        animation-delay: 0s;
+      }
+      .blocks i:nth-child(2) {
+        background: #efbe51;
+        animation-delay: 0.12s;
+      }
+      .blocks i:nth-child(3) {
+        background: #91b65f;
+        animation-delay: 0.24s;
+      }
+      .blocks i:nth-child(4) {
+        background: #419de4;
+        animation-delay: 0.36s;
+      }
+      @keyframes hop {
+        0%,
+        60%,
+        100% {
+          transform: translateY(0) scaleY(1);
+        }
+        25% {
+          transform: translateY(-16px) scaleY(1.12);
+        }
+        45% {
+          transform: translateY(0) scaleY(0.86);
+        }
+      }
+      #loading p {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        color: #193b43;
+        letter-spacing: 0.02em;
+      }
+      /* 움직임을 줄이도록 설정한 기기에서는 튀지 않게 합니다. */
+      @media (prefers-reduced-motion: reduce) {
+        .blocks i {
+          animation: none;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-CIuVU6sV.js"></script>
+  </head>
+  <body>
+    <div id="game"></div>
+    <div id="loading">
+      <div class="blocks"><i></i><i></i><i></i><i></i></div>
+      <p>말랑 블록</p>
+    </div>
+  </body>
+</html>
