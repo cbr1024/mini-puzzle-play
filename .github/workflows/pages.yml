@@ -23,7 +23,7 @@ jobs:
       - name: 게시 디렉터리 격리 및 파일 검사
         shell: python
         run: |
-          import pathlib, shutil
+          import pathlib, shutil, json
           root=pathlib.Path('.')
           site=pathlib.Path('_site')
           site.mkdir()
@@ -32,7 +32,10 @@ jobs:
               if p.is_dir(): shutil.copytree(p,site/p.name)
               else: shutil.copyfile(p,site/p.name)
           assert (site/'index.html').is_file()
-          assert len(list((site/'audio').glob('*.wav'))) == 13
+          metadata=json.loads((site/'audio/metadata.json').read_text())
+          assert len(metadata['files']) == 13
+          for name, item in metadata['files'].items():
+            assert (site/'audio'/f"{name}-{item['sha256']}.wav").is_file()
           assert not list(site.rglob('*.map'))
           assert not list(site.rglob('*.ts'))
       - uses: actions/configure-pages@v5
