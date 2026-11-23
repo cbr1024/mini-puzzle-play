@@ -1,0 +1,372 @@
+/* 채소팡 · 포근한 햇살밭
+   Large portraits are little plush objects; the board keeps its clean silhouette.
+   Positional motion, game state, hit areas and save data remain owned by the game. */
+:root {
+  --ink: #425f43;
+  --muted: #728069;
+  --surface: #fffdf6;
+  --focus: #54864c;
+  --plush-cream: #fff9ee;
+  --plush-paper: #fffdf7;
+  --plush-seam: #dfd8bd;
+  --plush-leaf: #477448;
+  --plush-peach: #e99564;
+}
+
+html { background: #f7f7e8; }
+.world { background-color: #f9f9ec; background-position: center bottom; }
+.world::before {
+  background: radial-gradient(ellipse at 50% 34%, #fffdf4c7 0%, #fffdf43d 48%, transparent 78%),
+    linear-gradient(180deg, var(--place-mist), transparent 65%);
+  opacity: .56;
+}
+.sunbeam { opacity: .65; }
+.app-header { max-width: 1190px; }
+.brand-wordmark {
+  color: #5a934c;
+  font-weight: 950;
+  text-shadow: 0 2px 0 #fffef1, 0 4px 0 #c9dbad, 0 6px 11px #718e3f18;
+}
+.brand-wordmark em {
+  color: #e99564;
+  text-shadow: 0 2px 0 #fff7e9, 0 4px 0 #eac49e, 0 6px 11px #b4753218;
+}
+.brand-friend { filter: drop-shadow(0 2px 1px #897e491b); }
+.brand-type small, .header-note { color: #7c8b67; }
+.header-actions .icon-button {
+  border: 1px solid #fdfdf3;
+  border-radius: 16px;
+  color: #688263;
+  background: linear-gradient(155deg, #fffef8, #f8f4e8);
+  box-shadow: 0 3px 0 #e2dfca9c, 0 5px 10px #7b8e4f0b;
+}
+.header-actions .ranking-launch {
+  color: #9c7627;
+  background: linear-gradient(145deg, #fff9db, #f7e6b8);
+  box-shadow: 0 3px 0 #e7d2a8, 0 5px 10px #9b78410b;
+}
+.star-wallet {
+  border-color: #fffdf3;
+  background: #fffdf4d9;
+  box-shadow: 0 3px 0 #e5e0cc73;
+}
+.star-wallet strong { color: #947132; }
+.star-wallet small { color: #8e8d73; }
+.stage-heading h1 { color: #426641; text-shadow: 0 2px 0 #fffbed; font-weight: 850; }
+.stage-heading p { color: #718365; }
+.stage-heading h1::before { color: #7a8c64; }
+.chapter-label { border-color: #dae4bf; background: #f8fae9; color: var(--place-ink); }
+.rank-mode { border-color: #e0e4cf; background: #fffdf2; color: #747b62; }
+.rank-mode.connected { background: #fff3d0; border-color: #e7d59f; color: #83641c; }
+
+/* One quiet companion ribbon. Extra room belongs to the character collection,
+   not the board's 44 px controls or the player's next move. */
+.companion-strip {
+  background: linear-gradient(105deg, color-mix(in srgb, var(--buddy-light) 75%, #fff8ec), #fffdf6 74%);
+  border-color: #fffef7;
+  border-radius: 18px;
+  box-shadow: 0 2px 0 #d6dfbf80, 0 5px 13px #77834508;
+}
+.companion-strip::before {
+  inset: 3px;
+  border-radius: 14px;
+  border-color: color-mix(in srgb, var(--buddy-color) 23%, transparent);
+  border-style: dashed;
+}
+.companion-avatar { filter: drop-shadow(0 2px 1px #7584541c); }
+.companion-identity strong { color: #426641; font-weight: 850; }
+.companion-identity small { color: #748165; }
+.companion-message { color: #607155; }
+.companion-heart { color: #c38893; }
+.promise-strip {
+  border-color: #e9dfc1;
+  border-radius: 15px;
+  background: linear-gradient(110deg, #fff5dc, #fffaf0 74%);
+  box-shadow: inset 0 1px 0 #fff, 0 2px 0 #e9dfc54d;
+}
+.promise-emblem { background: #f4e8c4; color: #9b8b43; }
+.promise-copy strong { color: #766a42; }
+.promise-copy small { color: #8d8160; }
+.promise-count { border-color: #e9d9b8; background: #fff9ea; color: #92733d; }
+.promise-track { background: #eae3cd; }
+.promise-track > span { background: linear-gradient(90deg, #b5ca80, #d4bd65); }
+
+/* A soft tray holds the puzzle; restrained cell contrast keeps six plush colors
+   and special-block direction marks immediately distinguishable. */
+.mission-bar {
+  background: linear-gradient(125deg, #fffef8, #fff9ed);
+  border-color: #fffdf4;
+  box-shadow: 0 2px 0 #e7e2ca8c, 0 5px 12px #7a85490a;
+  border-radius: 20px;
+}
+.stat-label { color: #758365; }
+.mission-goal strong { color: #4d704a; font-weight: 850; }
+.move-counter { border-left-color: #e5dfc8; }
+.move-counter strong { color: #d57b55; font-weight: 850; }
+.pause-button { border-color: #e2e4cc; background: #f5f6e9; box-shadow: inset 0 1px 0 #fff; }
+.pause-button .icon { color: #6d825d; }
+.score-display > span { color: #7d896d; font-weight: 750; letter-spacing: .08em; }
+.score-display strong { color: #537447; }
+.progress-track { border-color: #d6dfbd; background: #e9eedb; box-shadow: inset 0 1px 2px #7b884519; }
+#progress-fill { background: linear-gradient(90deg, #9bc477, #ced67d 58%, #e9ba55); }
+.progress-star { color: #c3cbb0; }
+.progress-star.earned { color: #eab94f; filter: drop-shadow(0 2px 0 #b68e342b); }
+.progress-star small { color: #7a8768; }
+.score-guidance > span { color: #748165; }
+.score-guidance strong { color: #a3782b; }
+#score-help { color: #7c896a; }
+.board-wrap {
+  border-color: #fffdf4;
+  background: linear-gradient(145deg, #fffef5, #faf3df 58%, #f3eccf);
+  box-shadow: 0 5px 0 #dbd6b3, 0 11px 0 #e9e6cf70, 0 18px 26px #7a8d581a, inset 0 2px 0 #fff;
+}
+.board-wrap::before {
+  border: 1px dashed #d9cfa8;
+  box-shadow: inset 0 1px 1px #fff9;
+}
+.board-cell {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--place-cell) 78%, #fbf4db), var(--place-mist)) !important;
+  box-shadow: inset 0 2px 3px #7d8d5420, 0 1px 0 #fff9;
+}
+.board-cell:nth-child(12n+2), .board-cell:nth-child(12n+4),
+.board-cell:nth-child(12n+6), .board-cell:nth-child(12n+7),
+.board-cell:nth-child(12n+9), .board-cell:nth-child(12n+11) {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--place-mist) 74%, #fff7e2), #f9f8e8) !important;
+}
+.bezel-charm { color: #c6ad73; opacity: .8; }
+.tile-art, .tile.selected .tile-art, .tile.dragging .tile-art {
+  filter: drop-shadow(0 2px 1px #77804b29) saturate(1.035);
+}
+.tile.selected::before {
+  background: radial-gradient(circle, var(--produce-light), #fff9);
+  box-shadow: inset 0 0 0 2px var(--produce-color), 0 0 0 2px #fff9;
+}
+.board-toast { background: #fffdf1f0 !important; border-color: #e1e5c8; color: #57714b !important; }
+.is-fever .board-wrap {
+  box-shadow: 0 5px 0 #ecc0a4, 0 11px 0 #ffe6af73, 0 15px 28px #eb9fb72b, 0 0 27px #ffe7aa8c;
+}
+
+/* Fabric seams are presentation detail. Do not turn 40 px gameplay sprites
+   into noisy miniatures, or alter the board's positional transform ownership. */
+:is(.tile, .goal-art, .companion-avatar, .brand-friend, .rank-avatar,
+  .friendship-result-avatar, .stage-story-avatar, .relationship-portraits,
+  .little-trio, .result-goals) :is(.plush-fabric, .plush-stitch, .plush-cheek-stitch) {
+  display: none;
+}
+
+.fever-strip {
+  border-color: #e6ccd7;
+  border-radius: 16px;
+  background: linear-gradient(110deg, #f6e6ec, #fff2e4);
+  box-shadow: 0 2px 0 #dfcbd17a, inset 0 1px 0 #fff8;
+}
+.fever-icon { color: #a9658b; background: #edd3df; border-color: #fff6ef; }
+.fever-heading strong, .fever-multiplier { color: #a25783; }
+.fever-heading > span { color: #8d7480; }
+.fever-track { height: 10px; background: #e4ced8; border-color: #fff7ed; box-shadow: inset 0 1px 2px #a26b8828; }
+#fever-fill { background: linear-gradient(90deg, #b38ac8, #df93b6 55%, #efbc70); }
+.is-fever .fever-strip { background: linear-gradient(110deg, #ffdfeb, #fff0c9); border-color: #e9a0ba; }
+.is-fever .fever-icon { color: #a34870; background: #ffc3da; }
+.is-fever .fever-heading strong, .is-fever .fever-multiplier { color: #b64779; }
+.booster { color: #697d57; }
+.booster-gem { border-color: #fff9ec; box-shadow: 0 3px 0 #d6d7b6aa, inset 0 2px 0 #fff9; }
+.hint-gem { color: #a58632; background: linear-gradient(145deg, #fff4c5, #efda94); }
+.shuffle-gem { color: #5d8d5b; background: linear-gradient(145deg, #e2efc9, #bedda6); }
+.blast-gem { color: #a1789e; background: linear-gradient(145deg, #fae6ef, #e5c1da); }
+.booster-count { background: #fffdf2; border-color: #e5e7cf; color: #6c814c; }
+.game-footer { border-top: 1px solid #dbe2c28c; }
+.game-footer button { color: #748461; }
+.game-footer .ranking-nav { color: #9c7830; }
+.game-footer .icon { stroke-width: 1.9; }
+
+/* Portraits are large enough to appreciate stitched faces and broad fabric
+   panels. The collection can scroll; a large toy never crowds the live HUD. */
+.friend-side h2 { color: #5a774b; font-family: inherit; font-weight: 750; font-size: 31px; line-height: 1.38; }
+.friend-side h2 em { color: #c88e61; font-style: normal; font-weight: 750; }
+.side-copy { color: #7b8b67; }
+.friend-card {
+  width: min(100%, 218px);
+  height: 294px;
+  padding: 16px 10px 15px;
+  border: 6px solid #fffdf3;
+  border-radius: 32px 32px 29px 29px;
+  background: radial-gradient(ellipse at 50% 30%, #fffdf4 8%, #f3f0d9 75%);
+  box-shadow: 0 4px 0 #dfdbc180, 0 12px 24px #7889541c;
+  transform: rotate(-3deg);
+}
+.friend-card .friend-art { width: min(164px, 100%); height: auto; aspect-ratio: 1; flex-shrink: 0; filter: drop-shadow(0 6px 4px #9e8f5720); }
+.friend-orbit {
+  width: 150px;
+  height: 150px;
+  left: 50%;
+  top: 22px;
+  transform: translateX(-50%);
+  border: 1px dashed #d7d2aa;
+  background: #fffaf080;
+}
+.card-tape { background-color: #ece1bcba; opacity: .9; }
+.friend-name { color: #547044; font-weight: 850; }
+.friend-en { color: #8c9673; letter-spacing: .12em; }
+.friend-tagline { color: #7c8665; line-height: 1.6; }
+.friend-heart { color: #bb8292; }
+.friend-speech { border-color: #e8e3ca; background: #fffdf3; color: #8b7d57; }
+.journey-side h2 { color: #718253; }
+.journey-stamp { color: #c7a164; background: #fff8df; border-color: #e9dcba; }
+.world-sidebar-button { border-color: #dedfc3; background: #f9f9e8; }
+.text-button { color: #748957; }
+.side-footnote, .page-footer { color: #8c9975; }
+
+.modal-backdrop { background: #8fa38980; backdrop-filter: blur(11px); -webkit-backdrop-filter: blur(11px); }
+.modal {
+  border-color: #fffdf2;
+  background: linear-gradient(145deg, #fffef8, #faf7eb);
+  box-shadow: 0 5px 0 #e6e1c580, 0 22px 65px #57654e38, inset 0 2px 0 #fff;
+}
+.modal-close { background: #f1eedf; color: #7d8767; border-color: #fffdf2; border-radius: 14px; }
+.modal h2 { color: #4d6e44; font-weight: 850; }
+.modal p { color: #728064; }
+.modal-actions::before { background: linear-gradient(transparent, #faf8ed); }
+.primary-button, #finish-next {
+  border-color: #f5ffe0a6;
+  background: linear-gradient(180deg, #93bd69, #79a956);
+  color: #fffef5;
+  box-shadow: 0 4px 0 #5b873f, 0 8px 13px #6388451a, inset 0 1px 0 #e0f0b64d;
+  text-shadow: 0 1px 0 #4c743b55;
+}
+.primary-button:active, #finish-next:active { box-shadow: 0 1px 0 #5b873f; }
+.secondary-button { color: #738257; background: #f2f3e3; border-color: #dce1c3; }
+.finish-dock { border-color: #fffdf2; background: linear-gradient(145deg, #fffbed, #f6f7e6); box-shadow: 0 3px 0 #dbdfbd90; }
+.finish-dock-summary { color: #6d8053; }
+.album-grid { gap: 12px; }
+.album-card {
+  padding: 24px 9px 15px;
+  border-color: #fffdf3;
+  border-radius: 23px;
+  background: radial-gradient(ellipse at 45% 29%, #fffef8 17%, var(--friend-light, #eff2dd));
+  box-shadow: 0 3px 0 #d8ddbd86, 0 6px 12px #73824e0c;
+}
+.album-card .album-art { width: 112px; height: 112px; max-width: 100%; }
+.album-card strong { color: #557244; font-weight: 850; font-size: 16px; }
+.album-card small { color: #83916c; }
+.album-card .friend-bond { color: #ad7d8e; }
+.album-card.selected { border-color: #bfd39d; box-shadow: 0 3px 0 #a8be83, 0 7px 14px #97b4741a; }
+.album-card.selected::after { top: 5px; color: #6e8b4d; background: #fffdf2e8; }
+.album-card .album-perk { color: #73865b; border-color: #fffdf4; background: #fffaf0c9; }
+.character-hero { width: 208px; height: 208px; margin: 0 auto 14px; filter: drop-shadow(0 8px 5px #91875120); }
+.character-pop {
+  height: 244px;
+  padding-top: 9px;
+  padding-bottom: 31px;
+  border-radius: 27px;
+  border-color: color-mix(in srgb, var(--produce-color) 22%, #fff5df);
+  background: radial-gradient(ellipse at 46% 32%, #fffef6 12%, var(--produce-light) 78%);
+  box-shadow: inset 0 2px 0 #fff8, 0 4px 0 color-mix(in srgb, var(--produce-color) 12%, #f7f1df);
+}
+.character-pop::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px dashed color-mix(in srgb, var(--produce-color) 27%, transparent);
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: -1;
+}
+.character-pop-art { width: 194px; height: 202px; max-width: 100%; filter: drop-shadow(0 7px 4px #8c875020); }
+.character-pop-caption { font-size: 11px; bottom: 11px; color: color-mix(in srgb, var(--produce-color) 53%, #4c643f); }
+.character-story, .character-heart { background: #f1f2e1; color: #72815f; }
+.character-tag { background: #f5f0dc; color: #889064; }
+.character-relationship { background: #fff4df; border-color: #e9debc; }
+.bond-track { background: #ecdae0; }
+.bond-track span { background: linear-gradient(90deg, #d7a1ad, #e2b398); }
+.story-diorama { border-color: #fffbed; }
+.chapter-intro, .map-level { border-color: #fffdf3; }
+.map-level { box-shadow: 0 3px 0 #cbdab17d; }
+.map-fifty .map-level.current { outline-color: #e7a878; }
+.ranking-banner { border-color: #fffaf0; background: linear-gradient(125deg, #fff1c4, #fff7df); }
+.ranking-results { border-color: #e4e5ce; }
+.own-rank { border-color: #ead59f; background: #fff4d5; }
+.rank-row { border-bottom-color: #e9ead8; }
+.rank-avatar { background: #f2f1e1; }
+.rank-person strong { color: #607b4b; }
+.rank-points { color: #8a9b5e; }
+.result-score { color: #73934d; }
+.result-star-feedback.complete { border-color: #ead69c; background: #fff1c7; }
+.result-friendship { background: linear-gradient(125deg, #fae9ee, #fff4e6); border-color: #eacdd7; }
+.result-ranking { background: #fff5db; border-color: #e8ddba; }
+
+@media (min-width: 960px) and (max-height: 820px) {
+  .friend-card { height: 264px; }
+  .friend-card .friend-art { width: min(143px, 100%); height: auto; }
+  .friend-orbit { width: 134px; height: 134px; top: 18px; }
+  .friend-side h2 { font-size: 27px; }
+}
+@media (max-width: 959px) {
+  .app-shell { padding-left: max(14px, env(safe-area-inset-left, 0px)); padding-right: max(14px, env(safe-area-inset-right, 0px)); }
+  .app-header { max-width: 420px; }
+  .header-actions .icon-button { border-radius: 15px; }
+  .character-hero { width: 184px; height: 184px; }
+  .character-pop { height: 225px; }
+  .character-pop-art { width: 177px; height: 184px; }
+  .game-footer { padding-top: 2px; }
+}
+@media (max-width: 520px) {
+  .world { background-size: auto 100svh; }
+  .world::before { opacity: .72; }
+  .brand-wordmark { font-size: 28px; }
+  .brand-friend { width: 36px; height: 40px; }
+  .brand { gap: 3px; }
+  .header-actions { gap: 5px; }
+  .header-actions .icon-button { width: 44px; height: 44px; min-width: 44px; }
+  .star-wallet { padding: 7px 8px; }
+  .star-wallet small { font-size: 9px; }
+  .stage-heading h1 { font-size: 21px; letter-spacing: -.045em; }
+  .stage-heading .rank-mode { padding-left: 8px; padding-right: 8px; }
+  .companion-strip { height: 50px; min-height: 50px; padding-top: 3px; padding-bottom: 3px; }
+  .companion-avatar { width: 42px; height: 42px; flex-basis: 42px; }
+  .companion-identity strong { font-size: 13px; }
+  .companion-identity small { font-size: 9.5px; }
+  .companion-message { font-size: 10.5px; }
+  .mission-bar { border-radius: 18px; }
+  .board-wrap { border-radius: 25px; }
+  .board-wrap::before { border-radius: 20px; }
+  .board-cell { border-radius: 11px; }
+  .fever-strip { border-radius: 15px; }
+  .game-footer button { font-size: 10px; }
+  .album-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+  .album-card { padding-top: 24px; padding-bottom: 13px; }
+  .album-card .album-art { width: 113px; height: 113px; }
+  .album-card strong { font-size: 15px; }
+  .album-card small { font-size: 10px; }
+  .album-card .album-perk { font-size: 10px; }
+  .character-pop { margin-bottom: 17px; }
+  .character-pop-caption { font-size: 10.5px; }
+}
+@media (max-width: 374px) {
+  .brand-wordmark { font-size: 26px; }
+  .brand-friend { width: 32px; }
+  .star-wallet { padding-left: 6px; padding-right: 6px; gap: 3px; }
+  .star-wallet strong { font-size: 13px; }
+  .star-wallet small { font-size: 8px; }
+  .header-actions { gap: 4px; }
+  .companion-identity { min-width: 74px; max-width: 84px; }
+  .companion-message { font-size: 10px; }
+  .album-card .album-art { width: 103px; height: 103px; }
+  .character-hero { width: 176px; height: 176px; }
+  .character-pop-art { width: 172px; height: 181px; }
+}
+@media (max-width: 959px) and (max-height: 700px) {
+  .character-pop { height: 204px; }
+  .character-pop-art { width: 160px; height: 165px; }
+  .character-hero { width: 162px; height: 162px; }
+  .album-card .album-art { height: 100px; }
+}
+@media (hover: hover) {
+  .tile:hover .tile-art { filter: drop-shadow(0 2px 1px #77804b29) saturate(1.035) brightness(1.02); }
+  .album-card:hover { box-shadow: 0 4px 0 #cbd7ac86, 0 10px 16px #73824e17; }
+  .primary-button:hover { filter: brightness(1.035); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .friend-card, .friend-card:hover, .friend-card:active { transform: none; }
+  .album-card:hover, .primary-button:hover, .primary-button:active { transform: none; }
+  .world::before, .world::after { transition: none; }
+}

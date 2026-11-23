@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100" fill="none">
+  <title>포근한 햇살밭</title>
+  <desc>크림빛 하늘, 솜구름, 잎사귀 언덕과 작은 해바라기 등대가 있는 밭뭉치의 정원.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e4f3e9"/><stop offset=".36" stop-color="#f6f8e7"/><stop offset=".76" stop-color="#fff9e9"/><stop offset="1" stop-color="#f1eccf"/></linearGradient>
+    <radialGradient id="sun-halo"><stop stop-color="#fff4c6" stop-opacity=".85"/><stop offset=".5" stop-color="#fff6dc" stop-opacity=".35"/><stop offset="1" stop-color="#fff5d9" stop-opacity="0"/></radialGradient>
+    <radialGradient id="felt-sun" cx=".35" cy=".28" r=".85"><stop stop-color="#fff9d6"/><stop offset=".58" stop-color="#ffe9a8"/><stop offset="1" stop-color="#f5d68a"/></radialGradient>
+    <radialGradient id="cream-cloud" cx=".34" cy=".17" r=".9"><stop stop-color="#fffef8"/><stop offset=".56" stop-color="#fcfbef"/><stop offset="1" stop-color="#dfe9d9"/></radialGradient>
+    <linearGradient id="mint-hill" x1=".2" y1="0" x2=".7" y2="1"><stop stop-color="#d3e5c8"/><stop offset="1" stop-color="#dfead0"/></linearGradient>
+    <linearGradient id="cream-hill" x1=".3" y1="0" x2=".8" y2="1"><stop stop-color="#eeeac7"/><stop offset="1" stop-color="#e6e5bb"/></linearGradient>
+    <linearGradient id="near-hill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c2dba9"/><stop offset="1" stop-color="#d5e3b9"/></linearGradient>
+    <radialGradient id="leaf" cx=".32" cy=".22" r=".93"><stop stop-color="#ecf5ce"/><stop offset=".35" stop-color="#cce3a9"/><stop offset="1" stop-color="#9cbe80"/></radialGradient>
+    <radialGradient id="sage-leaf" cx=".32" cy=".22" r=".93"><stop stop-color="#d7ebcf"/><stop offset=".42" stop-color="#b3d5ac"/><stop offset="1" stop-color="#87b18e"/></radialGradient>
+    <radialGradient id="peach-petal" cx=".3" cy=".2" r=".9"><stop stop-color="#fff2db"/><stop offset=".45" stop-color="#f6d3af"/><stop offset="1" stop-color="#dfae8e"/></radialGradient>
+    <radialGradient id="rose-petal" cx=".33" cy=".2" r=".9"><stop stop-color="#fff1e8"/><stop offset=".45" stop-color="#f3d0cb"/><stop offset="1" stop-color="#d8aeb5"/></radialGradient>
+    <radialGradient id="daisy-petal" cx=".35" cy=".2" r=".9"><stop stop-color="#fffef3"/><stop offset=".65" stop-color="#faf0d7"/><stop offset="1" stop-color="#e1d6b7"/></radialGradient>
+    <radialGradient id="flower-center" cx=".33" cy=".2" r=".95"><stop stop-color="#fff2bf"/><stop offset=".5" stop-color="#f4d990"/><stop offset="1" stop-color="#dbb874"/></radialGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fbf0d5"/><stop offset=".55" stop-color="#ecdab4"/><stop offset="1" stop-color="#dbc39a"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2=".6" y2="1"><stop stop-color="#edf8e8"/><stop offset=".55" stop-color="#d0e5d0"/><stop offset="1" stop-color="#b6d4bf"/></linearGradient>
+    <radialGradient id="shadow"><stop stop-color="#7a8f5b" stop-opacity=".19"/><stop offset="1" stop-color="#7a8f5b" stop-opacity="0"/></radialGradient>
+    <pattern id="linen" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 2H8M2 0V8" stroke="#928c60" stroke-opacity=".024" stroke-width=".6"/></pattern>
+    <g id="cloud">
+      <path d="M-86 25C-111 24-119 7-111-10C-105-25-89-29-74-22C-76-45-57-61-38-56C-23-82 12-78 26-56C50-62 71-45 72-24C95-33 118-15 114 6C110 24 94 30 71 30Z" fill="url(#cream-cloud)" stroke="#fffef7" stroke-width="2"/>
+      <path d="M-95 14C-81 22-67 20-52 21H74C88 21 98 17 104 9" stroke="#d4dfc9" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="4 6"/>
+      <path d="M-70-25C-67-44-52-50-40-47M-24-60C-7-70 10-64 17-56" stroke="#fffef9" stroke-width="4" stroke-linecap="round" opacity=".66"/>
+    </g>
+    <g id="leaf-sprig">
+      <path d="M0 0C-31-3-59-23-58-49C-57-61-48-64-39-59C-15-49 0-26 0 0Z" fill="url(#sage-leaf)" stroke="#d7e7c6" stroke-width="1"/>
+      <path d="M-5-6Q-24-30-46-49" stroke="#eaf3d7" stroke-width="1.3" stroke-linecap="round"/>
+    </g>
+    <g id="leaf-wide">
+      <path d="M0 0C-43 4-78-22-73-51C-67-72-38-67-21-46C-8-31 0-13 0 0Z" fill="url(#leaf)" stroke="#e1edc1" stroke-width="1"/>
+      <path d="M-5-4Q-32-26-60-49" stroke="#f4f8df" stroke-width="1.2" stroke-linecap="round"/>
+    </g>
+    <g id="flower-peach">
+      <g fill="url(#peach-petal)" stroke="#fff4df" stroke-width="1">
+        <ellipse cy="-24" rx="15" ry="24"/><ellipse cy="-24" rx="15" ry="24" transform="rotate(60)"/><ellipse cy="-24" rx="15" ry="24" transform="rotate(120)"/><ellipse cy="-24" rx="15" ry="24" transform="rotate(180)"/><ellipse cy="-24" rx="15" ry="24" transform="rotate(240)"/><ellipse cy="-24" rx="15" ry="24" transform="rotate(300)"/>
+      </g>
+      <circle r="20" fill="url(#flower-center)" stroke="#fff0b9" stroke-width="1.5"/>
+      <circle r="15" stroke="#d0b274" stroke-opacity=".4" stroke-width="1" stroke-dasharray="1 4" stroke-linecap="round"/>
+      <path d="M-7-9Q0-14 7-8" stroke="#fff6cf" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g id="flower-rose">
+      <g fill="url(#rose-petal)" stroke="#fff2e5" stroke-width="1">
+        <ellipse cy="-23" rx="16" ry="25"/><ellipse cy="-23" rx="16" ry="25" transform="rotate(72)"/><ellipse cy="-23" rx="16" ry="25" transform="rotate(144)"/><ellipse cy="-23" rx="16" ry="25" transform="rotate(216)"/><ellipse cy="-23" rx="16" ry="25" transform="rotate(288)"/>
+      </g>
+      <circle r="18" fill="url(#flower-center)" stroke="#fce9ba" stroke-width="1.5"/>
+      <path d="M-6-8Q0-12 6-8" stroke="#fff5d4" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g id="daisy">
+      <g fill="url(#daisy-petal)" stroke="#fffdf3" stroke-width="1">
+        <ellipse cy="-25" rx="12" ry="24"/><ellipse cy="-25" rx="12" ry="24" transform="rotate(45)"/><ellipse cy="-25" rx="12" ry="24" transform="rotate(90)"/><ellipse cy="-25" rx="12" ry="24" transform="rotate(135)"/><ellipse cy="-25" rx="12" ry="24" transform="rotate(180)"/><ellipse cy="-25" rx="12" ry="24" transform="rotate(225)"/><ellipse cy="-25" rx="12" ry="24" transform="rotate(270)"/><ellipse cy="-25" rx="12" ry="24" transform="rotate(315)"/>
+      </g>
+      <circle r="19" fill="url(#flower-center)" stroke="#f7e9b2" stroke-width="1.4"/>
+    </g>
+  </defs>
+
+  <path d="M0 0H1600V1100H0Z" fill="url(#sky)"/>
+  <ellipse cx="340" cy="175" rx="410" ry="340" fill="url(#sun-halo)"/>
+  <ellipse cx="805" cy="476" rx="455" ry="526" fill="#fffdf2" opacity=".3"/>
+  <!-- A tiny embroidered sun smiles over the garden, away from the game grid. -->
+  <g transform="translate(258 157)" opacity=".82">
+    <g stroke="#efdba0" stroke-width="5" stroke-linecap="round"><path d="M0-88V-100M62-62L72-72M88 0H100M62 62L72 72M-62 62L-72 72M-88 0H-100M-62-62L-72-72"/></g>
+    <circle r="65" fill="url(#felt-sun)" stroke="#fffae3" stroke-width="2"/>
+    <circle r="56" stroke="#e7ca8b" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 5" opacity=".55"/>
+    <path d="M-18 2Q-13-4-8 2M8 2Q13-4 18 2M-4 12Q0 16 4 12" stroke="#b49964" stroke-width="2.2" stroke-linecap="round"/>
+    <ellipse cx="-25" cy="12" rx="7" ry="3.7" fill="#efc6a0" opacity=".55"/><ellipse cx="25" cy="12" rx="7" ry="3.7" fill="#efc6a0" opacity=".55"/>
+    <path d="M-35-32Q-25-46-10-46" stroke="#fffce6" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+  </g>
+  <g opacity=".5" stroke-linecap="round">
+    <path d="M1260 252C1260 142 1350 65 1460 65" stroke="#efd2bd" stroke-width="17"/>
+    <path d="M1283 252C1283 157 1367 88 1460 88" stroke="#f2e1ac" stroke-width="16"/>
+    <path d="M1305 252C1305 174 1381 110 1460 110" stroke="#cbdcba" stroke-width="15"/>
+    <path d="M1327 252C1327 190 1397 132 1460 132" stroke="#c8ded7" stroke-width="14"/>
+  </g>
+  <use href="#cloud" transform="translate(256 285) scale(1.11)" opacity=".95"/>
+  <use href="#cloud" transform="translate(1393 282) scale(1.13)" opacity=".95"/>
+  <use href="#cloud" transform="translate(104 452) scale(.47)" opacity=".56"/>
+  <use href="#cloud" transform="translate(1104 136) scale(.53)" opacity=".65"/>
+
+  <!-- Rounded, sewn landscape panels leave the middle high and quiet. -->
+  <path d="M0 868C118 751 254 757 393 893C533 1029 665 1008 815 977C1040 929 1217 772 1393 821C1496 850 1548 904 1600 907V1100H0Z" fill="url(#mint-hill)"/>
+  <path d="M0 927C128 829 270 869 402 994C547 1132 866 1130 1088 1003C1255 908 1459 861 1600 986V1100H0Z" fill="url(#cream-hill)"/>
+  <path d="M0 1032C166 934 311 972 451 1052C620 1148 806 1119 976 1067C1205 998 1407 1018 1600 1047V1100H0Z" fill="url(#near-hill)"/>
+  <path d="M9 883C118 778 248 778 371 895M1162 868C1295 786 1445 843 1579 920" stroke="#f2f6df" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 9" opacity=".7"/>
+  <path d="M0 1045C165 951 298 988 433 1064M1089 1050C1269 1008 1443 1042 1600 1060" stroke="#f2f4d5" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="4 8" opacity=".7"/>
+
+  <!-- The established sunflower lighthouse becomes a warm little wooden toy. -->
+  <g transform="translate(327 714) rotate(-4)" opacity=".72">
+    <ellipse cy="184" rx="74" ry="16" fill="url(#shadow)"/>
+    <path d="M-28 176L-22 21Q-22 12-13 12H22Q31 12 32 22L38 176Q5 187-28 176Z" fill="url(#wood)" stroke="#fff5d9" stroke-width="3"/>
+    <path d="M-21 62H32M-23 106H34M-25 151H36" stroke="#dfc693" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-5 177V150A12 12 0 0 1 19 150V177" fill="#aabc8a" stroke="#fff2d0" stroke-width="4"/>
+    <path d="M0 94V79A8 8 0 0 1 16 79V94Z" fill="url(#glass)" stroke="#fff4d8" stroke-width="3.5"/>
+    <g transform="translate(5 1)">
+      <g fill="url(#flower-center)" stroke="#ffefb9" stroke-width="1.6"><ellipse cy="-29" rx="13" ry="24"/><ellipse cy="-29" rx="13" ry="24" transform="rotate(45)"/><ellipse cy="-29" rx="13" ry="24" transform="rotate(90)"/><ellipse cy="-29" rx="13" ry="24" transform="rotate(135)"/><ellipse cy="-29" rx="13" ry="24" transform="rotate(180)"/><ellipse cy="-29" rx="13" ry="24" transform="rotate(225)"/><ellipse cy="-29" rx="13" ry="24" transform="rotate(270)"/><ellipse cy="-29" rx="13" ry="24" transform="rotate(315)"/></g>
+      <circle r="23" fill="#e5d4a7" stroke="#f7eac6" stroke-width="4"/><path d="M0-12L4-3 13 0 4 4 0 13-4 4-13 0-4-3Z" fill="#fff6c9"/>
+    </g>
+    <path d="M-15 27V52M-16 116V135" stroke="#fff8e0" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+  </g>
+
+  <!-- A curved-roof greenhouse and tiny seed trays, deliberately low contrast. -->
+  <g transform="translate(1305 788) rotate(3)" opacity=".69">
+    <ellipse cy="139" rx="111" ry="19" fill="url(#shadow)"/>
+    <path d="M-77 128V37C-77-1-45-30 0-30C45-30 77-1 77 37V128Z" fill="url(#glass)" stroke="#fff8df" stroke-width="7"/>
+    <path d="M-77 51H77M-77 94H77M0-29V128M-41-18V128M41-18V128" stroke="#f1edce" stroke-width="5"/>
+    <path d="M-16 131V84Q-16 67 0 67Q16 67 16 84V131" fill="#e9eed4" stroke="#fff6dc" stroke-width="5"/>
+    <path d="M-48 117H-26M25 117H48" stroke="#b5bc88" stroke-width="8" stroke-linecap="round"/>
+    <path d="M-38 112V101M35 112V102" stroke="#99b780" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M-38 103Q-51 101-48 93Q-36 91-38 103M35 104Q46 104 47 95Q36 92 35 104" fill="#acd09b"/>
+    <path d="M-61 34Q-60 9-42-4" stroke="#fffff3" stroke-width="4" stroke-linecap="round" opacity=".65"/>
+    <path d="M-84 131H85" stroke="#d5cca1" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <path d="M1150 950C1188 951 1258 977 1320 1008" stroke="#edf7e6" stroke-width="30" stroke-linecap="round" opacity=".72"/>
+  <path d="M1150 950C1188 951 1258 977 1320 1008" stroke="#c7dfc9" stroke-width="18" stroke-linecap="round" opacity=".72"/>
+  <path d="M1168 951L1181 953M1226 971L1242 977M1291 996L1303 1002" stroke="#fff9e4" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+
+  <!-- Large padded petals at the edges make the world feel like the same toy. -->
+  <g transform="translate(111 1092)">
+    <ellipse cy="-13" rx="107" ry="23" fill="url(#shadow)"/>
+    <path d="M0 0C24-87 21-145-4-222" stroke="#afc18b" stroke-width="12" stroke-linecap="round"/>
+    <path d="M-2-8C19-83 18-142-6-217" stroke="#d6e4b3" stroke-width="3" stroke-linecap="round"/>
+    <use href="#leaf-sprig" transform="translate(16 -107) rotate(0) scale(.96)"/>
+    <use href="#leaf-wide" transform="translate(14 -146) rotate(106) scale(.75)"/>
+    <use href="#flower-rose" transform="translate(-5 -245) rotate(-12) scale(1.35)"/>
+    <path d="M84 8Q90-57 125-103" stroke="#b9c99a" stroke-width="7" stroke-linecap="round"/>
+    <use href="#leaf-wide" transform="translate(103 -45) rotate(9) scale(.53)"/>
+    <use href="#daisy" transform="translate(132 -115) rotate(12) scale(.7)"/>
+    <use href="#leaf-wide" transform="translate(-51 22) rotate(12) scale(1.2)"/>
+    <use href="#leaf-sprig" transform="translate(-45 15) rotate(85) scale(1.6)"/>
+    <use href="#leaf-wide" transform="translate(47 30) rotate(45) scale(1.1)"/>
+  </g>
+  <g transform="translate(1486 1092)">
+    <ellipse cy="-7" rx="116" ry="21" fill="url(#shadow)"/>
+    <path d="M0 8C-29-61-34-126-12-211" stroke="#a9c08d" stroke-width="11" stroke-linecap="round"/>
+    <path d="M-1 0C-26-62-29-126-10-207" stroke="#d9e7bb" stroke-width="3" stroke-linecap="round"/>
+    <use href="#leaf-sprig" transform="translate(-22 -109) rotate(102) scale(1.02)"/>
+    <use href="#leaf-wide" transform="translate(-20 -148) rotate(0) scale(.74)"/>
+    <use href="#flower-peach" transform="translate(-10 -231) rotate(11) scale(1.4)"/>
+    <path d="M-89 14Q-83-41-108-82" stroke="#b7c99a" stroke-width="7" stroke-linecap="round"/>
+    <use href="#leaf-sprig" transform="translate(-89 -25) rotate(91) scale(.66)"/>
+    <use href="#daisy" transform="translate(-112 -101) rotate(-17) scale(.66)"/>
+    <use href="#leaf-wide" transform="translate(70 23) rotate(86) scale(1.3)"/>
+    <use href="#leaf-sprig" transform="translate(76 17) rotate(10) scale(1.4)"/>
+    <use href="#leaf-wide" transform="translate(-30 30) rotate(80) scale(1.1)"/>
+  </g>
+  <g opacity=".48" fill="#e3c799"><ellipse cx="238" cy="1013" rx="12" ry="5" transform="rotate(-11 238 1013)"/><ellipse cx="1386" cy="1058" rx="15" ry="5"/><ellipse cx="287" cy="1054" rx="8" ry="4"/></g>
+  <g fill="#fffdf2" opacity=".8"><path d="M390 364L393 373 402 376 393 379 390 388 387 379 378 376 387 373Z"/><path d="M1230 476L1232 482 1238 484 1232 486 1230 492 1228 486 1222 484 1228 482Z"/><path d="M157 588L159 594 165 596 159 598 157 604 155 598 149 596 155 594Z"/></g>
+  <g fill="#b4c99f" opacity=".36"><circle cx="178" cy="363" r="3"/><circle cx="350" cy="584" r="2.5"/><circle cx="1415" cy="451" r="3"/><circle cx="1313" cy="627" r="2.5"/></g>
+  <path d="M0 0H1600V1100H0Z" fill="url(#linen)"/>
+</svg>
