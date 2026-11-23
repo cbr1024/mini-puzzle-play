@@ -1,200 +1,117 @@
 <!doctype html>
 <html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f3fbf7">
-<meta name="description" content="햇살밭의 과일·채소 친구 밭뭉치와 빛씨앗을 되찾는 모험. 몽글몽글 채소팡 3매치 퍼즐.">
-<title>채소팡 · 햇살밭의 밭뭉치</title>
-<link rel="icon" type="image/svg+xml" href="icon.svg">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="mobile.css">
-<link rel="stylesheet" href="motion.css">
-<link rel="stylesheet" href="polish.css">
-<link rel="stylesheet" href="story.css">
-<link rel="stylesheet" href="sensory.css">
-<link rel="stylesheet" href="world.css">
-<link rel="stylesheet" href="plush.css">
-<script defer src="game-config.js"></script>
-<script defer src="session-guard.js"></script>
-<script defer src="mobile.js"></script>
-<script defer src="art.js"></script>
-<script defer src="story.js"></script>
-<script defer src="rewards.js"></script>
-<script defer src="engine.js"></script>
-<script defer src="levels.js"></script>
-<script defer src="hints.js"></script>
-<script defer src="journey.js"></script>
-<script defer src="progress.js"></script>
-<script defer src="effects.js"></script>
-<script defer src="board.js"></script>
-<script defer src="ranking-client.js"></script>
-<script defer src="app.js"></script>
-</head>
-<body>
-  <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
-    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M12 21C3 17 2 7 4 3c8 0 14 6 8 18ZM12 16C11 7 16 2 22 2c1 7-3 12-10 14Z" fill="currentColor"/></symbol>
-    <symbol id="i-sound" viewBox="0 0 24 24"><path d="m11 5-5 4H3v6h3l5 4V5Z"/><path d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/></symbol>
-    <symbol id="i-muted" viewBox="0 0 24 24"><path d="m11 5-5 4H3v6h3l5 4V5ZM16 9l6 6m0-6-6 6"/></symbol>
-    <symbol id="i-help" viewBox="0 0 24 24"><path d="M9 8a3 3 0 1 1 5 2.3c-1.2.8-2 1.1-2 3.2"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9"/></symbol>
-    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke-width="3.5"/></symbol>
-    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z" fill="currentColor" stroke="none"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
-    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3 6.2 6.8 1-4.9 4.8 1.2 6.8-6.1-3.2-6.1 3.2 1.2-6.8L2.2 9.2l6.8-1L12 2Z" fill="currentColor" stroke="none"/></symbol>
-    <symbol id="i-crown" viewBox="0 0 24 24"><path d="m3 7 4 4 5-7 5 7 4-4-2 12H5L3 7Z"/><path d="M6 22h12"/></symbol>
-    <symbol id="i-restart" viewBox="0 0 24 24"><path d="M3 11a9 9 0 1 1 2 6M3 4v7h7"/></symbol>
-    <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M3 6h3c4 0 8 12 12 12h3M18 15l3 3-3 3M3 18h3c1.7 0 3-2.2 4.6-5M13 9c1.7-2 3-3 5-3h3M18 3l3 3-3 3"/></symbol>
-    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6L12 2Z" fill="currentColor" stroke="none"/></symbol>
-    <symbol id="i-wand" viewBox="0 0 24 24"><path d="m4 20 11-11M12 3v3M18 3l-2 3M21 8h-3M19 13l-2-2M7 7l2 2"/><path d="m12 10 2 2"/></symbol>
-    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M8 15a6 6 0 1 1 8 0l-1 3H9l-1-3ZM9 21h6M10 18v-5m4 5v-5m-4 0h4"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
-<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21S2 15 2 8a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 7-10 13-10 13Z" fill="currentColor" stroke="none"/></symbol>
-<symbol id="i-flower" viewBox="0 0 24 24"><path d="M12 3c5-7 12 2 6 6 8 1 5 12-2 9-1 8-12 7-11-1-8 1-8-10 0-10-1-6 6-8 7-4Z" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="3" fill="#fff2b4"/></symbol>
-<symbol id="i-map" viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5ZM9 3v16M15 5v16"/></symbol>
-<symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5c-3-3-7-3-10-1v16c3-2 7-2 10 1 3-3 7-3 10-1V4c-3-2-7-2-10 1ZM12 5v16"/></symbol>
-<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V6a4 4 0 0 1 8 0v4M12 14v3"/></symbol>
-<symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3" fill="var(--surface,#fff)"/><circle cx="16" cy="17" r="3" fill="var(--surface,#fff)"/></symbol>
-<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7 3h10v5c0 4-2 6-5 6s-5-2-5-6V3ZM7 5H3v3c0 3 2 4 5 4M17 5h4v3c0 3-2 4-5 4M12 14v5M7 22h10M9 19h6"/></symbol>
-<symbol id="i-bolt" viewBox="0 0 24 24"><path d="m14 2-10 12h7l-1 8 10-12h-7l1-8Z" fill="currentColor" stroke="none"/></symbol>
-  </defs></svg>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>말랑 블록</title>
+    <meta name="description" content="보석을 놓아 줄을 지우는 90초 퍼즐" />
+    <meta name="color-scheme" content="light" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #f4efe3;
+        touch-action: none;
+        overscroll-behavior: none;
+      }
+      #game {
+        width: 100%;
+        height: 100%;
+      }
 
-
-<div class="world" aria-hidden="true"><div class="sunbeam"></div></div>
-<canvas id="ambient" aria-hidden="true"></canvas>
-<div class="app-shell">
-  <header class="app-header">
-    <button class="brand" id="brand-button" aria-label="채소팡 정원 지도">
-      <span id="brand-friend" class="brand-friend"></span>
-      <span class="brand-type"><strong class="brand-wordmark"><span>채소</span><em>팡</em></strong><small>SUNSHINE IN EVERY POP</small></span>
-    </button>
-    <span class="header-note">햇살밭에 어서 와요</span>
-    <nav class="header-actions" aria-label="게임 메뉴">
-      <button class="star-wallet" id="stars-button" aria-label="모은 별과 정원 지도"><svg class="icon"><use href="#i-star"/></svg><strong id="total-stars">0</strong><small>/ 150</small></button>
-      <button class="icon-button ranking-launch" id="header-ranking" aria-label="랭킹 보기"><svg class="icon"><use href="#i-trophy"/></svg></button>
-      <button class="icon-button" id="sound-button" aria-label="전체 소리 끄기" aria-pressed="true" title="소리"><svg class="icon"><use href="#i-sound"/></svg></button>
-      <button class="icon-button" id="settings-button" aria-label="설정" title="설정"><svg class="icon"><use href="#i-settings"/></svg></button>
-    </nav>
-  </header>
-  <main class="game-layout">
-    <aside class="friend-side" aria-label="함께하는 친구">
-      <span class="eyebrow"><span class="tiny-flower">✿</span> MEET THE BATMUNGCHI</span>
-      <h2>작은 마음이<br><em>팡, 피어나는 곳.</em></h2>
-      <p class="side-copy">과일과 채소의 빛이 모여<br>햇살밭의 아침을 깨워요.</p>
-      <button class="friend-card" id="friend-card" aria-label="함께하는 친구와 인사하기">
-        <span class="card-tape"></span><span class="friend-orbit"></span>
-        <span class="friend-art" id="portrait-spirit"></span>
-        <span class="friend-name" id="friend-name">포포</span><span class="friend-en" id="friend-en">POPO</span>
-        <span class="friend-tagline" id="friend-tagline">마음을 폭 감싸는 양배추</span>
-        <span class="friend-heart"><svg><use href="#i-heart"/></svg><span id="friend-bond">첫 만남</span></span>
-      </button>
-      <div class="friend-speech" id="friend-speech">우리, 오늘도 같이 놀자!</div>
-      <button class="text-button" id="side-album-button">밭뭉치 친구 만나보기 <svg class="icon"><use href="#i-book"/></svg></button>
-    </aside>
-
-    <section class="game" aria-labelledby="stage-title">
-      <div class="stage-heading">
-        <div class="stage-meta"><button class="chapter-label" id="stage-map-button"><svg class="icon"><use href="#i-flower"/></svg><span id="chapter-number">STAGE 01</span></button><span id="difficulty-badge" class="difficulty-badge">산책</span><button id="rank-mode" class="rank-mode" aria-label="랭킹 상태 보기">연결 중</button></div>
-        <h1 id="stage-title">첫 번째 빛씨앗</h1>
-        <p id="stage-subtitle">포포와 캐로가 햇살밭의 아침을 기다려요.</p>
-      </div>
-
-      <button class="companion-strip" id="companion-button" aria-label="동행 친구 보기">
-        <span class="companion-avatar" id="companion-avatar"></span>
-        <span class="companion-identity"><strong id="companion-name">포포</strong><small id="companion-level">Lv.1 · 첫 만남</small></span>
-        <span class="companion-message" id="companion-message">우리, 오늘도 같이 놀자!</span>
-        <span class="companion-heart" aria-hidden="true"><svg class="icon"><use href="#i-heart"/></svg></span>
-      </button>
-
-      <button class="promise-strip" id="promise-button" aria-label="햇살 약속과 이번 이야기 보기">
-        <span class="promise-emblem" aria-hidden="true"><svg class="icon"><use href="#i-leaf"/></svg></span>
-        <span class="promise-copy"><small id="promise-caption">선택 목표 · 햇살 약속</small><strong id="promise-title">작은 빛을 함께 모아요</strong></span>
-        <span class="promise-count" id="promise-count">0 / 1</span>
-        <span class="promise-chevron" aria-hidden="true">›</span>
-        <span class="promise-track" aria-hidden="true"><span id="promise-fill"></span></span>
-      </button>
-
-      <div class="mission-bar">
-        <div class="mission-group"><span class="stat-label">오늘의 작은 미션</span><div class="mission-goals" id="mission-goals"></div></div>
-        <div class="move-counter"><span class="stat-label">남은 횟수</span><strong id="moves">24</strong></div>
-        <button class="pause-button" id="pause-button" aria-label="일시 정지"><svg class="icon"><use href="#i-pause"/></svg></button>
-      </div>
-      <div class="score-rail">
-        <div class="score-display"><span>SCORE</span><strong id="score">0</strong></div>
-        <div class="progress-container"><div class="progress-track" role="progressbar" aria-label="별 점수 진행률" aria-valuemin="0" aria-valuemax="4950" aria-valuenow="0" id="score-progress"><div id="progress-fill"></div></div><span class="progress-star star-1"><svg><use href="#i-star"/></svg><small></small></span><span class="progress-star star-2"><svg><use href="#i-star"/></svg><small></small></span><span class="progress-star star-3"><svg><use href="#i-star"/></svg><small></small></span></div>
-        <span class="combo-chip" id="combo-chip"><svg class="icon"><use href="#i-spark"/></svg><span id="combo-record">BEST ×0</span></span>
-      </div>
-      <div class="score-guidance"><span id="next-star">첫 번째 별을 모아봐요</span><button id="score-help" aria-label="별과 남은 이동 보너스 안내"><svg class="icon"><use href="#i-help"/></svg><span>별 안내</span></button></div>
-
-      <div class="board-wrap" id="board-wrap">
-        <span class="bezel-charm charm-left" aria-hidden="true">✿</span><span class="bezel-charm charm-right" aria-hidden="true">✦</span>
-        <div class="board" id="board" role="grid" aria-label="6 곱하기 6 밭뭉치 퍼즐. 이웃한 두 빛모습을 누르거나 밀어 교환하세요." aria-rowcount="6" aria-colcount="6">
-          <div class="board-cells" id="board-cells" aria-hidden="true"></div>
-          <div class="bud-layer" id="bud-layer" aria-hidden="true"></div>
-          <div class="tiles" id="tiles"></div>
-        </div>
-        <canvas id="effects" aria-hidden="true"></canvas>
-        <div class="combo-display" id="combo-display" aria-hidden="true"><span id="combo-label">Lovely!</span><small id="combo-caption">몽글몽글 연쇄</small></div>
-        <div class="board-toast" id="board-toast" role="status"></div>
-        <div class="fever-rim" aria-hidden="true"></div>
-        <div class="special-coach" id="special-coach" hidden role="status">
-          <span class="coach-symbol" id="coach-symbol" aria-hidden="true"></span>
-          <span class="coach-copy"><strong id="coach-title"></strong><span id="coach-description"></span></span>
-          <button id="coach-dismiss" aria-label="특수 팡빛 안내 확인하고 닫기"><svg class="icon"><use href="#i-close"/></svg></button>
-        </div>
-      </div>
-
-      <div class="fever-strip" id="fever-strip">
-        <span class="fever-icon"><svg class="icon"><use href="#i-bolt"/></svg></span>
-        <div class="fever-content"><div class="fever-heading"><strong id="fever-title">반짝 피버</strong><span id="fever-caption">팡빛을 모으면 햇살이 차올라요</span></div><div class="fever-track" role="progressbar" aria-label="피버 게이지" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="fever-progress"><span id="fever-fill"></span></div></div>
-        <span class="fever-multiplier" id="fever-multiplier">×2</span>
-      </div>
-      <div class="play-hint" id="play-hint">같은 빛모습 3개를 나란히 모아보세요</div>
-
-      <section class="finish-dock" id="finish-dock" aria-label="완료한 정원의 다음 행동" hidden>
-        <div class="finish-dock-summary"><span id="finish-dock-title">정원이 활짝 피었어요!</span><strong id="finish-dock-stars"></strong></div>
-        <button id="finish-next" class="primary-button">다음 단계로 <span aria-hidden="true">→</span></button>
-        <div class="finish-dock-secondary"><button id="finish-retry"><svg class="icon"><use href="#i-restart"/></svg>다시 도전</button><button id="finish-map"><svg class="icon"><use href="#i-map"/></svg>지도 보기</button><button id="finish-result">결과 보기</button></div>
-      </section>
-
-      <div class="boosters" aria-label="도움 아이템">
-        <button class="booster" id="hint-button" aria-label="힌트 보기"><span class="booster-gem hint-gem"><svg class="icon"><use href="#i-bulb"/></svg><span class="booster-count">∞</span></span><span>반짝 힌트</span></button>
-        <button class="booster" id="shuffle-button" aria-label="보드 섞기, 2회 남음"><span class="booster-gem shuffle-gem"><svg class="icon"><use href="#i-shuffle"/></svg><span class="booster-count" id="shuffle-count">2</span></span><span>산들바람</span></button>
-        <button class="booster" id="blast-button" aria-label="마법 터뜨리기, 2회 남음" aria-pressed="false"><span class="booster-gem blast-gem"><svg class="icon"><use href="#i-wand"/></svg><span class="booster-count" id="blast-count">2</span></span><span>꽃비 마법</span></button>
-      </div>
-      <nav class="game-footer" aria-label="정원 메뉴"><button id="map-button"><svg class="icon"><use href="#i-map"/></svg>햇살밭 지도</button><button id="album-button"><svg class="icon"><use href="#i-heart"/></svg>친구 도감</button><button id="ranking-button" class="ranking-nav"><svg class="icon"><use href="#i-trophy"/></svg>랭킹</button><button id="story-button"><svg class="icon"><use href="#i-book"/></svg>이야기</button><button id="help-button"><svg class="icon"><use href="#i-help"/></svg>놀이 방법</button></nav>
-    </section>
-
-    <aside class="journey-side" aria-label="정원 여행">
-      <span class="journey-stamp"><svg><use href="#i-flower"/></svg></span>
-      <span class="eyebrow">OUR LITTLE ADVENTURE</span>
-      <h2>흩어진 빛씨앗,<br>함께 찾아볼까요?</h2>
-      <div class="mini-path" id="mini-path"></div>
-      <div class="journey-progress"><span>빛씨앗 여행</span><strong id="journey-count">1 / 50</strong></div>
-      <div class="journey-track"><span id="journey-fill"></span></div>
-      <p class="journey-tip" id="journey-tip">4명을 모으면 한 줄 반짝!<br>5명을 모으면 무지개 마법.</p>
-      <button class="world-sidebar-button" id="side-world-button"><svg class="icon"><use href="#i-leaf"/></svg><span>우리의 햇살밭<strong id="world-sidebar-count">함께 가꾸는 15개의 장소</strong></span><b aria-hidden="true">›</b></button>
-      <div class="little-trio" id="little-trio"></div>
-      <span class="side-footnote">SMALL SPROUTS, BRAVE HEARTS.</span>
-    </aside>
-  </main>
-  <footer class="page-footer"><span>CHAESO PANG · BATMUNGCHI</span><span>✿</span><span>햇살은 함께 나눌수록 커져요</span></footer>
-</div>
-
-<div class="modal-backdrop" id="modal-backdrop" hidden>
-  <section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
-    <button class="modal-close icon-button" id="modal-close" aria-label="닫기"><svg class="icon"><use href="#i-close"/></svg></button>
-    <div class="modal-art" id="modal-art"></div><span class="eyebrow" id="modal-eyebrow"></span><h2 id="modal-title"></h2><div id="modal-content"></div><div class="modal-actions" id="modal-actions"></div>
-  </section>
-</div>
-<div class="session-notice" id="session-notice" hidden>
-  <section class="session-card" role="alertdialog" aria-modal="true" aria-labelledby="session-title" aria-describedby="session-description">
-    <span class="session-symbol" aria-hidden="true"><svg class="icon"><use href="#i-heart"/></svg></span>
-    <h2 id="session-title">정원 기록을 확인하고 있어요</h2>
-    <p id="session-description">친구들과 함께한 기록을 안전하게 불러올게요.</p>
-    <button class="primary-button" id="session-reload">최신 기록 다시 불러오기</button>
-  </section>
-</div>
-<div class="sr-only" id="announcer" role="status" aria-live="polite" aria-atomic="true"></div>
-<noscript><div class="noscript-message">채소팡을 플레이하려면 브라우저의 JavaScript를 켜주세요.</div></noscript>
-</body>
+      /*
+       * 로딩 화면 — 게임 코드가 내려오기 전에 «먼저» 보이는 화면입니다.
+       *
+       * 앱인토스 출시 기준은 「10초 이내에 최초 화면까지 열려요」 입니다.
+       * 게임 번들(약 400KB)만 기다리면 느린 3G 에서 9초가 걸려 여유가 없었습니다(실측).
+       * HTML·CSS 만으로 만든 이 화면은 첫 응답과 함께 즉시 뜨므로 흰 화면이 사라집니다.
+       */
+      #loading {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        background: #f4efe3;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+      }
+      #loading.done {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .blocks {
+        display: flex;
+        gap: 10px;
+      }
+      .blocks i {
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
+        display: block;
+        animation: hop 0.9s ease-in-out infinite;
+      }
+      .blocks i:nth-child(1) {
+        background: #32c4bd;
+        animation-delay: 0s;
+      }
+      .blocks i:nth-child(2) {
+        background: #efbe51;
+        animation-delay: 0.12s;
+      }
+      .blocks i:nth-child(3) {
+        background: #91b65f;
+        animation-delay: 0.24s;
+      }
+      .blocks i:nth-child(4) {
+        background: #419de4;
+        animation-delay: 0.36s;
+      }
+      @keyframes hop {
+        0%,
+        60%,
+        100% {
+          transform: translateY(0) scaleY(1);
+        }
+        25% {
+          transform: translateY(-16px) scaleY(1.12);
+        }
+        45% {
+          transform: translateY(0) scaleY(0.86);
+        }
+      }
+      #loading p {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        color: #193b43;
+        letter-spacing: 0.02em;
+      }
+      /* 움직임을 줄이도록 설정한 기기에서는 튀지 않게 합니다. */
+      @media (prefers-reduced-motion: reduce) {
+        .blocks i {
+          animation: none;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-C86JH6YK.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DV2rZE6G.css">
+  </head>
+  <body>
+    <div id="game"></div>
+    <div id="loading">
+      <div class="blocks"><i></i><i></i><i></i><i></i></div>
+      <p>말랑 블록</p>
+    </div>
+  </body>
 </html>
